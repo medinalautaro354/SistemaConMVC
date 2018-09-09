@@ -5,6 +5,7 @@
  */
 package vista;
 
+import java.util.Calendar;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -12,8 +13,9 @@ import javax.swing.table.DefaultTableModel;
  * @author lautalb
  */
 public class frmPrincipal extends javax.swing.JFrame {
-    
+
     DefaultTableModel modelo;
+
     /**
      * Creates new form frmPrincipal
      */
@@ -21,25 +23,32 @@ public class frmPrincipal extends javax.swing.JFrame {
         initComponents();
         this.mostrarTabla();
         this.llenarCB();
-        
-        
+
     }
-    
-    public void llenarCB(){
+
+    public void llenarCB() {
         cbSexo.removeAllItems();
         cbSexo.addItem("Masculino");
         cbSexo.addItem("Femenino");
         
     }
-    
-    public void mostrarTabla(){
-        modelo= new DefaultTableModel();
+
+    public void mostrarTabla() {
+        modelo = new DefaultTableModel();
         modelo.addColumn("Nombre");
         modelo.addColumn("Apellido");
         modelo.addColumn("Edad");
         modelo.addColumn("Sexo");
         modelo.addColumn("Fecha");
         this.tbPrincipal.setModel(modelo);
+    }
+
+    public String fecha()
+    {   String dia = Integer.toString(dcFecha.getCalendar().get(Calendar.DAY_OF_MONTH));
+        String mes = Integer.toString(dcFecha.getCalendar().get(Calendar.MONTH)+1);
+        String year = Integer.toString(dcFecha.getCalendar().get(Calendar.YEAR));
+        String fecha = (dia + "/" + mes + "/" + year);
+        return fecha;
     }
 
     /**
@@ -80,6 +89,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         lblEdad.setText("Edad:");
 
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         lblSexo.setText("Sexo:");
 
@@ -204,6 +218,10 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments

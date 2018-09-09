@@ -24,18 +24,29 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-              <Component id="jPanel1" max="32767" attributes="0"/>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="panelNice3" min="-2" pref="432" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="panelNice1" alignment="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="panelNice1" min="-2" pref="43" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="17" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="panelNice3" min="-2" pref="43" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -51,72 +62,83 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="lblContraseña" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtContraseña" min="-2" pref="154" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="lblUsuario" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="txtUsuario" min="-2" pref="154" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
-                          <Component id="btnAceptar" min="-2" pref="124" max="-2" attributes="0"/>
+                      <Component id="lblContraseña1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblUsuario1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="btnAceptar" min="-2" pref="125" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="txtUsuario" max="32767" attributes="0"/>
+                          <Component id="txtContraseña" alignment="0" pref="137" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="144" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblUsuario1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblContraseña" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblContraseña1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtContraseña" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="btnAceptar" min="-2" pref="32" max="-2" attributes="0"/>
-                  <EmptySpace pref="92" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                  <Component id="btnAceptar" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="107" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lblUsuario">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Usuario:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblContrase&#xf1;a">
+        <Component class="javax.swing.JLabel" name="lblContrase&#xf1;a1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Contrase&#xf1;a:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtUsuario">
+        <Component class="javax.swing.JLabel" name="lblUsuario1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Usuario:"/>
+          </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtContrase&#xf1;a">
+        <Component class="org.edisoncor.gui.textField.TextField" name="txtUsuario">
         </Component>
-        <Component class="javax.swing.JButton" name="btnAceptar">
+        <Component class="org.edisoncor.gui.passwordField.PasswordField" name="txtContrase&#xf1;a">
+        </Component>
+        <Component class="org.edisoncor.gui.button.ButtonRound" name="btnAceptar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Aceptar"/>
           </Properties>
         </Component>
+      </SubComponents>
+    </Container>
+    <Container class="org.edisoncor.gui.panel.PanelNice" name="panelNice1">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+    </Container>
+    <Container class="org.edisoncor.gui.panel.PanelNice" name="panelNice3">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+      <SubComponents>
+        <Container class="org.edisoncor.gui.panel.PanelCurves" name="panelCurves2">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+              <BorderConstraints direction="Center"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+        </Container>
       </SubComponents>
     </Container>
   </SubComponents>
