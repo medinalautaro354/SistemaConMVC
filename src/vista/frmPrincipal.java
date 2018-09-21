@@ -14,41 +14,15 @@ import javax.swing.table.DefaultTableModel;
  */
 public class frmPrincipal extends javax.swing.JFrame {
 
-    DefaultTableModel modelo;
+    
 
     /**
      * Creates new form frmPrincipal
      */
     public frmPrincipal() {
         initComponents();
-        this.mostrarTabla();
-        this.llenarCB();
+       // this.mostrarTabla();
 
-    }
-
-    public void llenarCB() {
-        cbSexo.removeAllItems();
-        cbSexo.addItem("Masculino");
-        cbSexo.addItem("Femenino");
-        
-    }
-
-    public void mostrarTabla() {
-        modelo = new DefaultTableModel();
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Apellido");
-        modelo.addColumn("Edad");
-        modelo.addColumn("Sexo");
-        modelo.addColumn("Fecha");
-        this.tbPrincipal.setModel(modelo);
-    }
-
-    public String fecha()
-    {   String dia = Integer.toString(dcFecha.getCalendar().get(Calendar.DAY_OF_MONTH));
-        String mes = Integer.toString(dcFecha.getCalendar().get(Calendar.MONTH)+1);
-        String year = Integer.toString(dcFecha.getCalendar().get(Calendar.YEAR));
-        String fecha = (dia + "/" + mes + "/" + year);
-        return fecha;
     }
 
     /**
@@ -74,6 +48,12 @@ public class frmPrincipal extends javax.swing.JFrame {
         cbSexo = new javax.swing.JComboBox<>();
         lblFecha = new javax.swing.JLabel();
         dcFecha = new com.toedter.calendar.JDateChooser();
+        btnConsultar = new javax.swing.JButton();
+        txtFecha = new javax.swing.JTextField();
+        txtId = new javax.swing.JTextField();
+        btnModificar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbPrincipal = new javax.swing.JTable();
         pnlConfiguracion = new javax.swing.JPanel();
@@ -101,22 +81,37 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         lblFecha.setText("Fecha:");
 
+        btnConsultar.setText("Consultar");
+        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarActionPerformed(evt);
+            }
+        });
+
+        txtFecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFechaActionPerformed(evt);
+            }
+        });
+
+        btnModificar.setText("Modificar");
+
+        btnEliminar.setText("Eliminar");
+
+        btnBuscar.setText("Buscar");
+
         javax.swing.GroupLayout pnlInteriorPrincipalLayout = new javax.swing.GroupLayout(pnlInteriorPrincipal);
         pnlInteriorPrincipal.setLayout(pnlInteriorPrincipalLayout);
         pnlInteriorPrincipalLayout.setHorizontalGroup(
             pnlInteriorPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlInteriorPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlInteriorPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(pnlInteriorPrincipalLayout.createSequentialGroup()
-                        .addComponent(lblNombre)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlInteriorPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlInteriorPrincipalLayout.createSequentialGroup()
                         .addComponent(lblApellido)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtApellido))
-                    .addGroup(pnlInteriorPrincipalLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInteriorPrincipalLayout.createSequentialGroup()
                         .addGroup(pnlInteriorPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblEdad)
                             .addComponent(lblSexo))
@@ -124,12 +119,32 @@ public class frmPrincipal extends javax.swing.JFrame {
                         .addGroup(pnlInteriorPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtEdad)
                             .addComponent(cbSexo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(btnGuardar)
                     .addGroup(pnlInteriorPrincipalLayout.createSequentialGroup()
-                        .addComponent(lblFecha)
-                        .addGap(18, 18, 18)
-                        .addComponent(dcFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(pnlInteriorPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(pnlInteriorPrincipalLayout.createSequentialGroup()
+                                .addGroup(pnlInteriorPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtId)
+                                    .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pnlInteriorPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(10, 10, 10)
+                                .addGroup(pnlInteriorPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnConsultar)))
+                            .addGroup(pnlInteriorPrincipalLayout.createSequentialGroup()
+                                .addComponent(lblNombre)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtNombre))
+                            .addGroup(pnlInteriorPrincipalLayout.createSequentialGroup()
+                                .addComponent(lblFecha)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(dcFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(254, 254, 254))
         );
         pnlInteriorPrincipalLayout.setVerticalGroup(
             pnlInteriorPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,12 +165,22 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addGroup(pnlInteriorPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSexo)
                     .addComponent(cbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlInteriorPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblFecha)
+                    .addGroup(pnlInteriorPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblFecha)
+                        .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(dcFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                .addComponent(btnGuardar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlInteriorPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGuardar)
+                    .addComponent(btnModificar)
+                    .addComponent(btnEliminar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlInteriorPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar)
+                    .addComponent(btnConsultar))
                 .addContainerGap())
         );
 
@@ -177,7 +202,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlInteriorPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
         );
         pnlPrincipalLayout.setVerticalGroup(
@@ -185,7 +210,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             .addGroup(pnlPrincipalLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pnlInteriorPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
@@ -200,7 +225,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         );
         pnlConfiguracionLayout.setVerticalGroup(
             pnlConfiguracionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 484, Short.MAX_VALUE)
+            .addGap(0, 489, Short.MAX_VALUE)
         );
 
         tpContenedor.addTab("Configuracion", pnlConfiguracion);
@@ -219,8 +244,16 @@ public class frmPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnConsultarActionPerformed
+
+    private void txtFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFechaActionPerformed
+
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        
+
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
@@ -259,9 +292,13 @@ public class frmPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnGuardar;
-    private javax.swing.JComboBox<String> cbSexo;
-    private com.toedter.calendar.JDateChooser dcFecha;
+    public static javax.swing.JButton btnBuscar;
+    public static javax.swing.JButton btnConsultar;
+    public static javax.swing.JButton btnEliminar;
+    public static javax.swing.JButton btnGuardar;
+    public static javax.swing.JButton btnModificar;
+    public static javax.swing.JComboBox<String> cbSexo;
+    public static com.toedter.calendar.JDateChooser dcFecha;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblEdad;
@@ -271,10 +308,12 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel pnlConfiguracion;
     private javax.swing.JPanel pnlInteriorPrincipal;
     private javax.swing.JPanel pnlPrincipal;
-    private javax.swing.JTable tbPrincipal;
+    public static javax.swing.JTable tbPrincipal;
     private javax.swing.JTabbedPane tpContenedor;
-    private javax.swing.JTextField txtApellido;
-    private javax.swing.JTextField txtEdad;
-    private javax.swing.JTextField txtNombre;
+    public static javax.swing.JTextField txtApellido;
+    public static javax.swing.JTextField txtEdad;
+    public static javax.swing.JTextField txtFecha;
+    public static javax.swing.JTextField txtId;
+    public static javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

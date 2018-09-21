@@ -4,7 +4,11 @@
  * and open the template in the editor.
  */
 package sistemamvc;
-
+import controlador.Controlador;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import modelo.Modelo;
+import vista.frmPrincipal;
 /**
  *
  * @author lautalb
@@ -15,7 +19,17 @@ public class SistemaMVC {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        try {
+            //Para abrir el sistema
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+        Modelo m = new Modelo();
+        frmPrincipal v = new frmPrincipal();
+        Controlador c = new Controlador(m, v);
+        c.iniciar();
     }
     
 }
